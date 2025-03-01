@@ -18,8 +18,9 @@ app.post('/beep-data-forwarder', (req, res) => {
     res.status(200).json({ message: "Payload ontvangen en gelogd" });
 });
 
-// Laat de poort dynamisch bepalen door Railway of fallback op 8080
-const PORT = process.env.PORT || 8080;
+// ✅ Laat Railway bepalen (en lokaal kun je alsnog 3000 gebruiken)
+const PORT = process.env.PORT || 8080;  // Dit is correct
+
 app.listen(PORT, () => {
     console.log(`[${new Date().toISOString()}] Server draait op poort ${PORT}`);
 });
