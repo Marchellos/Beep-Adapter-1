@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
     res.status(200).send('Beep Data Forwarder draait!');
 });
 
-// Je eigen endpoint
+// Je echte endpoint
 app.post('/beep-data-forwarder', (req, res) => {
     console.log(`[${new Date().toISOString()}] Inkomende payload ontvangen:`);
     console.log(JSON.stringify(req.body, null, 2));
@@ -18,7 +18,7 @@ app.post('/beep-data-forwarder', (req, res) => {
     res.status(200).json({ message: "Payload ontvangen en gelogd" });
 });
 
-// Start server op poort 3000 (Railway gebruikt standaard 3000)
+// **Railway verwacht poort 3000**
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`[${new Date().toISOString()}] Server draait op poort ${PORT}`);
